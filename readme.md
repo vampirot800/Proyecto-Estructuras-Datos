@@ -6,12 +6,12 @@ El proyecto Gestionador de Rocas Minerales Permite al usuario consultar y gestio
 ## Instrucciones para compilar el proyecto
 Ejecuta el siguiente comando en la terminal:
 
-`g++ main.cpp BST.h mergeSort.h minerales.h roca_base.h roca.h -o entrega_final` 
+`g++ main.cpp BST.h minerales.h roca_base.h roca.h leerCSV.h -o entrega_final` 
 
 ## Instrucciones para ejecutar el proyecto
 Ejecuta el siguiente comando en la terminal:
 
-`./a.out 
+./a.out 
 
 ## Descripción de las entradas del avance de proyecto
 El programa toma como entrada un archivo .csv, en el cual se lee la lista de rocas.
@@ -127,11 +127,11 @@ Este mecanismo de lectura de archivos se aplica de manera adecuada en la carga d
 La implementación de este mecanismo ha demostrado ser efectiva y versátil, adaptándose a diferentes archivos CSV con variados tamaños y estructuras de datos. Además, se han considerado casos de manejo de errores, como la detección de la apertura fallida de un archivo.
 
 ### Implementa mecanismos de escritura de archivos para guardar los datos  de las estructuras de manera correcta
- La función saveCSV en la clase Minerales es responsable de escribir los datos del árbol binario de búsqueda (BST) en un archivo CSV.
+Se interactúa con el usuario solicitándole que ingrese el nombre del nuevo archivo CSV que se creará, permitiendo una personalización significativa.
 
-La función saveCSV dentro del programa proporciona una implementación efectiva de mecanismos de escritura de archivos para almacenar los datos de las estructuras de manera precisa. En primer lugar, se utiliza un objeto ofstream para abrir el archivo especificado en modo de truncamiento (ios::trunc), lo que asegura que se sobrescriba si ya existe o se cree uno nuevo en caso contrario. La función incluye una verificación para garantizar que la apertura del archivo sea exitosa y, en caso contrario, muestra un mensaje de error. Luego, se procede a escribir la primera línea del archivo, que actúa como encabezado, describiendo las columnas de los datos, como "Nombre", "Dureza" y "Valor".
+Posteriormente, el programa solicita al usuario el nombre del archivo CSV existente del cual se copiará la información. Utiliza la clase LeerCSV para leer los datos de este archivo y los almacena en la variable existingData. Se procede a crear un nuevo vector de datos llamado data, utilizando la información recopilada del archivo CSV existente. Cada fila en este nuevo vector contiene los mismos datos que la fila correspondiente en existingData, asegurando la consistencia de la información.
 
-Posteriormente, la función obtiene una lista ordenada de rocas utilizando el método inorderA del árbol binario de búsqueda (rocasTree). A continuación, itera sobre esta lista y escribe cada roca en una nueva línea del archivo CSV. Este proceso se realiza mediante el método to_string de la clase Roca, lo que asegura la representación adecuada de los datos en el archivo final. Finalmente, el archivo se cierra correctamente después de completar la operación de escritura.
+Finalmente, se utiliza la clase gestionadorMinerales para escribir el nuevo archivo CSV, especificado por el usuario, con los datos recopilados en el vector data. Este proceso garantiza que la información se almacene correctamente en el nuevo archivo. Como confirmación de la finalización exitosa del procedimiento, se imprime un mensaje indicando que el archivo CSV se ha creado con éxito. 
 
 ### Evidencia 2 - Problemas
 Links:<br> 
